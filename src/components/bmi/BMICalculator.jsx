@@ -19,25 +19,25 @@ function BMIGauge({ bmi }) {
     <div className="space-y-4">
       {/* Bar */}
       <div className="relative">
-        <div className="relative h-10 rounded-full overflow-visible flex shadow-inner">
+        <div className="relative h-10 rounded-full overflow-hidden flex shadow-inner">
           {SEGMENTS.map((s, i) => (
             <div
               key={i}
-              className="flex-1 first:rounded-l-full last:rounded-r-full"
+              className="flex-1"
               style={{ backgroundColor: s.color, opacity: 0.8 }}
             />
           ))}
-          {/* Needle */}
+        </div>
+        {/* Needle — outside bar so overflow-hidden doesn't clip it */}
+        <div
+          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 pointer-events-none"
+          style={{ left: `clamp(2%, ${pct}%, 98%)` }}
+        >
+          <div className="w-1 h-14 bg-gray-900 dark:bg-white rounded-full shadow-lg" />
           <div
-            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 pointer-events-none"
-            style={{ left: `${pct}%` }}
-          >
-            <div className="w-1 h-14 bg-gray-900 dark:bg-white rounded-full shadow-lg" />
-            <div
-              className="absolute -top-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-gray-900 dark:border-white shadow-md"
-              style={{ backgroundColor: getBMICategory(bmi).color }}
-            />
-          </div>
+            className="absolute -top-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-gray-900 dark:border-white shadow-md"
+            style={{ backgroundColor: getBMICategory(bmi).color }}
+          />
         </div>
 
         {/* Scale labels */}
