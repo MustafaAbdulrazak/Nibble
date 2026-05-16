@@ -71,7 +71,7 @@ export default function Layout({ page, setPage, children }) {
       </aside>
 
       {/* ── Main content ── */}
-      <main className="flex-1 lg:ml-60 pb-20 lg:pb-0 min-h-screen">
+      <main className="flex-1 lg:ml-60 min-h-screen">
         {/* Mobile header */}
         <header className="lg:hidden sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-2.5">
@@ -98,13 +98,13 @@ export default function Layout({ page, setPage, children }) {
         </header>
 
         {/* Page content */}
-        <div className="p-4 lg:p-8 max-w-6xl mx-auto">
+        <div className="p-4 lg:p-8 max-w-6xl mx-auto pb-28 lg:pb-8">
           {children}
         </div>
       </main>
 
       {/* ── Mobile bottom nav ── */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-30 flex">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-30 flex safe-bottom" style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 8px)' }}>
         {navItems.map(item => (
           <button
             key={item.id}

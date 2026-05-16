@@ -36,11 +36,12 @@ function ExerciseInput({ ex, index, onChange, onDelete, canDelete }) {
             <label className="block text-xs text-gray-400 dark:text-gray-500 mb-1 font-medium">{f.label}</label>
             <input
               type="number"
+              inputMode="decimal"
               value={ex[f.key]}
               onChange={e => onChange(f.key, e.target.value)}
               placeholder={f.ph}
               step="0.5"
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm text-center outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+              className="w-full px-2 py-3 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm text-center outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition min-h-[44px]"
             />
           </div>
         ))}

@@ -103,17 +103,17 @@ export default function WeightLog() {
       {/* Add entry */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm">
         <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-4">Log New Entry</h2>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="flex-1">
+        <div className="grid grid-cols-2 gap-3">
+          <div>
             <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1.5 font-medium">Date</label>
             <input
               type="date"
               value={form.date}
               onChange={e => setForm(f => ({ ...f, date: e.target.value }))}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm"
             />
           </div>
-          <div className="flex-1">
+          <div>
             <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1.5 font-medium">Weight (kg)</label>
             <input
               type="number"
@@ -122,19 +122,17 @@ export default function WeightLog() {
               onKeyDown={e => e.key === 'Enter' && addEntry()}
               placeholder="e.g. 75.5"
               step="0.1" min="20" max="500"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm"
             />
           </div>
-          <div className="flex items-end">
-            <button
-              onClick={addEntry}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-colors shadow-sm text-sm"
-            >
-              <IonIcon name="add-outline" size="18px" />
-              Add Entry
-            </button>
-          </div>
         </div>
+        <button
+          onClick={addEntry}
+          className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-colors shadow-sm text-sm mt-3"
+        >
+          <IonIcon name="add-outline" size="18px" />
+          Add Entry
+        </button>
         {error && (
           <div className="flex items-center gap-1.5 text-red-500 dark:text-red-400 text-sm mt-2.5">
             <IonIcon name="warning-outline" size="16px" />
